@@ -1,0 +1,32 @@
+nav {
+    background-color: #1e1f1d; /* set the background color of the navigation bar */
+    overflow: hidden; /* clear the float of the navigation bar */
+    margin-left: 20px;
+    margin-right: 20px;
+}
+
+nav ul {
+    list-style-type: none; /* remove the bullet points from the list items */
+    margin: 0;
+    padding: 0;
+    font-weight: bold;
+}
+
+nav li {
+    float: left; /* float the list items to the left */
+}
+
+nav li a {
+    display: block; /* convert the links to block elements to fill the width of the list item */
+    color: white; /* set the font color of the links */
+    text-align: center; /* center the text of the links */
+    padding: 14px 16px; /* add padding to the links */
+    text-decoration: none; /* remove the underline from the links */
+}
+
+nav li a:hover {
+    background-color: #111; /* set the background color of the links on hover */
+}
+.contact{
+    float: right;
+}
