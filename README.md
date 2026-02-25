@@ -1,55 +1,77 @@
+# Secure Password Manager Monorepo
 
-# 🧪 My Research Page
+## Project Structure
 
-Welcome to my personal research webpage, built with HTML, CSS, and JavaScript and hosted via GitHub Pages!
+- `backend/` FastAPI + SQLAlchemy + JWT + Argon2 + encrypted vault
+- `mobile/` Expo React Native TypeScript app with biometrics
+- `extension/` Chrome extension (Manifest v3) with vault sync and autofill
 
-🔗 **Live Site**: [Click here to view](https://vangimallaroopeswarasaireddy.github.io/my-research-page.github.io/)
+## Environment Variables
 
-## 📌 About
-
-This website is part of my portfolio and academic presence. It is designed to:
-
-- Showcase my academic interests and research projects
-- Share my resume, skills, and contact information
-- Serve as a digital profile hosted on GitHub Pages
-
-## 🛠️ Built With
-
-- **HTML5** – For content structure
-- **CSS3** – For styling and responsive design
-- **JavaScript** – For interactivity (if used)
-- **GitHub Pages** – For free and fast static site hosting
-
-## 📁 Repository Structure
-
-
-
-my-research-page.github.io/
-├── index.html        # Main homepage
-├── style.css         # Styling for the site
-├── script.js         # Optional JavaScript
-└── README.md         # Project documentation (this file)
-
-
-
-## 🚀 Getting Started
-
-To clone and run this project locally:
+Create `backend/.env` from `backend/.env.example`.
 
 ```bash
-git clone https://github.com/vangimallaroopeswarasaireddy/my-research-page.github.io.git
-cd my-research-page.github.io
-````
+cp backend/.env.example backend/.env
+```
 
-Open `index.html` in your browser to view it locally.
+Required keys:
+- `JWT_SECRET_KEY`
+- `JWT_REFRESH_SECRET_KEY`
+- `FERNET_KEY` (generate with Python: `from cryptography.fernet import Fernet; print(Fernet.generate_key().decode())`)
 
-## 👨‍💻 Author
+## Backend Setup
 
-**Vangimalla Roopeswara Sai Reddy**
-Student at Amrita Vishwa Vidyapeetham, Chennai
-Aspiring Web Content & HTML Developer
+```bash
+cd backend
+python3.11 -m venv .venv
+source .venv/bin/activate
+pip install -r requirements.txt
+uvicorn app.main:app --reload --host 0.0.0.0 --port 8000
+```
 
-## 🌐 Connect With Me
+API routes:
+- `POST /auth/register`
+- `POST /auth/login`
+- `POST /auth/refresh`
+- `POST /auth/logout`
+- `GET /vault`
+- `POST /vault`
+- `PUT /vault/{id}`
+- `DELETE /vault/{id}`
+- `POST /backup/export`
+- `POST /backup/import`
 
-* [GitHub Profile](https://github.com/vangimallaroopeswarasaireddy)
-* [Live Site](https://vangimallaroopeswarasaireddy.github.io/my-research-page.github.io/)
+## Mobile Setup (Expo)
+
+```bash
+cd mobile
+npm install
+npm run start
+```
+
+Then press:
+- `a` for Android
+- `i` for iOS
+
+## Chrome Extension Setup
+
+1. Open `chrome://extensions`.
+2. Enable **Developer mode**.
+3. Click **Load unpacked**.
+4. Select the `extension/` folder.
+5. Pin extension and open popup.
+
+## Security Notes
+
+- Master password hashes stored with Argon2 + per-user salt.
+- Vault passwords encrypted before DB storage.
+- Access/refresh JWT token flow with expiration + refresh rotation.
+- 2FA (TOTP) support included at auth layer.
+- Rate-limited auth routes.
+- Security headers middleware and strict validation via Pydantic.
+
+## Screenshots
+
+- Backend: terminal/API workflow
+- Mobile: Login, Vault List, Add/Edit, Generator, Settings (dark theme)
+- Extension: popup login, vault search, copy password, generator
