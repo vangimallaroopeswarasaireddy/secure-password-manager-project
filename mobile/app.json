@@ -1,0 +1,24 @@
+{
+  "expo": {
+    "name": "Secure Password Manager",
+    "slug": "secure-password-manager",
+    "version": "1.0.0",
+    "orientation": "portrait",
+    "userInterfaceStyle": "dark",
+    "splash": {
+      "resizeMode": "contain",
+      "backgroundColor": "#0B1020"
+    },
+    "ios": {
+      "supportsTablet": true,
+      "bundleIdentifier": "com.secure.passwordmanager"
+    },
+    "android": {
+      "package": "com.secure.passwordmanager"
+    },
+    "plugins": [
+      "expo-secure-store",
+      "expo-local-authentication"
+    ]
+  }
+}
