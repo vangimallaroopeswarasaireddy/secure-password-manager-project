@@ -74,7 +74,7 @@ Then press:
 ## 👥 Team Members
 
 - **Vangimalla Roopeswara Sai Reddy**
-  GitHub: https://github.com/<your-github-username>
+  GitHub: https://github.com/vangimallaroopeswarasaireddy
 
 - **M. Sai Rohan**
   GitHub: https://github.com/sairohanmorri
