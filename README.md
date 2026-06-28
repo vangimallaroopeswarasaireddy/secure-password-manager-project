@@ -70,8 +70,17 @@ Then press:
 - Rate-limited auth routes.
 - Security headers middleware and strict validation via Pydantic.
 
-## Screenshots
 
-- Backend: terminal/API workflow
-- Mobile: Login, Vault List, Add/Edit, Generator, Settings (dark theme)
-- Extension: popup login, vault search, copy password, generator
+## 👥 Team Members
+
+- **Vangimalla Roopeswara Sai Reddy**
+  GitHub: https://github.com/<your-github-username>
+
+- **M. Sai Rohan**
+  GitHub: https://github.com/sairohanmorri
+
+- **Bali Goutham Naidu**
+  GitHub: https://github.com/goutham1842
+
+- **Nelluri Harshith**
+  GitHub: https://github.com/harshith24056
